@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Home - Documentation</title>
+    <title>login-script.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,36 +29,80 @@
 
 <div id="main">
     
+    <h1 class="page-title">login-script.js</h1>
+    
 
     
 
 
 
     
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ * Catatan:
+ * Gunakan fungsi goToHome() untuk menampilkan halaman home
+ * Gunakan fungsi goToLogin() untuk menampilkan halaman login
+ * Gunakan fungsi showPopUp() untuk menampilkan pop up error
+ */
+
+const loginFormElement = document.querySelector('#loginForm');
+/**
+*Membuat variabel inputEmailElement untuk tampilan input email
+*@constant {HTMLElement}
+*/
+const inputEmailElement = document.querySelector('#inputEmail');
 
 
+/**
+*Membuat variabel inputPasswordElement untuk tampilan input password
+*@constant {HTMLElement}
+*/
+const inputPasswordElement = document.querySelector('#inputPassword');
 
 
+/**
+* Membuat variabel expectedEmail untuk menyimpan informasi email
+*@constant {string}
+*/
+const expectedEmail = 'admin@dicoding.com';
 
 
+/**
+* Membuat variabel expectedPassword untuk menyimpan informasi email
+*@constant {string}
+*/
+const expectedPassword = 'superpassword';
 
 
+/*Menambahkan aksi klik button. */
+loginFormElement.addEventListener('submit', function(event) {
+  event.preventDefault();
 
-    
+  /**
+  *Membuat variabel email untuk menyimapn nilai email yang didapatkan pada saat button ditekan
+  *@constant{string}
+  */
+  const email = inputEmailElement.value;
 
+  /**
+  *Membuat variabel password untuk menyimapn nilai password yang didapatkan pada saat button ditekan
+  *@constant{string}
+  */
+  const password = inputPasswordElement.value;
 
-    <section class="readme">
-        <article><h1>Aplikasi-Login</h1>
-<p>Sebuah aplikasi dengan fitur login.</p>
-<p>Alur Fitur Login:</p>
-<ol>
-<li>Memasukkan email dan password</li>
-<li>Memvalidasi masukan.</li>
-<li>Menampilkan halaman hone.</li>
-</ol></article>
+  /*Memasukan bahwa nilai email dan password sesuai*/
+  if (email == expectedEmail &amp;&amp; password == expectedPassword) {
+    /*Jika sesuai move to Home*/
+    goToHome();
+  } else {
+    /*Jika tidak sesuai, tampilkan pop up notifikasi input salah*/
+    showPopUp();
+  }
+});
+</code></pre>
+        </article>
     </section>
-
-
 
 
 
